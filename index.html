@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            font-size: 40px;
+            padding: 20px;
+            color: white;
+            border-radius: 20px;
+            background-color: black;
+            display: block;
+            margin: auto;
+            margin-top: 250px;
+        }
+        .main{
+           
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+        .text{
+            
+            width: 500px;
+            font-size: 25px;
+            font-family: sans-serif;
+            align-items: center
+            ;
+            
+        }
+    </style>
+</head>
+<h1 style="text-align: center; font-size:40px; font-family: sans-serif; font-weight: bold; background: cyan;">Hindi Shayri</h1>
+<hr>
+<div class="main">
+    <p class="text" id="shayri">
+        `Agar Aapni Kismat Likhane Ka Jara Sa Bhi Hak Ho Mujhe
+        To Apane Naam Ke Saath Tujhe Har Baar Likhoon..!!`
+    </p>
+</div>
+<button class="btn" onclick="generate()">Generate New Shayri</button>
+<script>
+
+let jokes=[`Agar Aapni Kismat Likhane Ka Jara Sa Bhi Hak Ho Mujhe
+To Apane Naam Ke Saath Tujhe Har Baar Likhoon..!!`,
+
+`Ye Mohabbat Hai Janaab Kitanee Bhee Takaleeph De
+Magar Sukoon Bhi Usi Ki Baahon Mein Milata Hai..!!`,
+
+`Jab Kisee Kee Rooh Mein Utar Jaata Hai Mohabbat Ka Samandar
+Tab Log Jinda To Hote Hain Lekin Kisee Aur Ke Andar..!!
+`,
+`Ek ada aapki muskurane ki
+Ek ada aapki dil me bas jane ki
+Aur Ek chehra aapka chaand sa Ek jid hamari chaand ko paane ki..!!`,
+
+
+`Aakho Me Saja Sapne Hum Tumse Milne Aaye The
+Yaad Hain Kya aaj Bhi Wo Pal
+Jab Pehli Nazar Me Hume Dekh
+Tum Dhire se Muskuraye The`,
+
+`Kuch Baat Hain To Mujhse Keh Do Na
+Meri Duniya Me Aakar Reh Lo Na
+Ye Dil Taras Gaya hain Sunane Ko
+Phir Ek baar Pyar Se Pagal keh do Na..!!`,
+
+`Ma koi kisi se door hota hai
+Na koi kisi ke krib hota hai
+Wo khud he chal ke aata hai
+Jo jiska nasib hota hai..!!`,
+
+`Jadu Hai Teri Har Ek Baat Me
+Yaad Bahut Aate Ho Din Aur Raat Me
+Kal Jab Dekha Tha Mene Sapna Raat Me
+Tab Bhi Apka Hi Hath Tha Mere Hath Me..!!`, 
+
+`Aapko Meri Nazro Se Nazar Na Lage
+Koi Paraya Bhi Accha Is Kadar Na Lage
+Aapko Dekha Hain Hamesha Us Nazar Se
+Jis Nazar Se Aapko Hamari Naz ar Na Lage..!!`,
+
+`Zindagi Me Aapse Milena Bhi Jaruri Tha
+Ishq Kya Chiz Hain Ye Janana Bhi Jaruri Tha
+Meri Khushiyon Ka Khajana Ho Tum Isliye
+Aapko Pana Meri Manjil Banana Bhi jaruri Tha..!!`,
+
+`Aise Koi Subah Nahi
+Jab Tum Yaad Nahi Aati
+Har Roj Ye Dil Dua Karta Hain
+Ek Baar To Aapse Mulakaat Ho Pati..!!`,
+
+`Bus Mohabbat Me Pehli Suruat Chal rahi hai
+Hamare Bich Ek dusre ko Dekhte Hai
+Baar Baar Par Kabhi Izhaar nahi kar Pate..!!
+`,
+`Bahut Chaha Liya Dur Se Ab Izhaar Karna Baaki Hain
+Jo Simay Hain Ishq Ki Ab Unhe Paar Karna Baaki Hain
+Humse Tum Nazre Kab Tak Chupaoge
+Abhi To Aakho Ka Didaar Karna Baaki Hain..!!
+`,
+`Tera Mera Koi To Rishta Tha Purana
+Jo Teri Aakho Me Tha Wo Bus Main Hi Dekha
+Meri Koshish Thi Tujhse Dur Rahu Par
+Lagta Hain Dil ne Kiya Tha Jhutha Bahana..!!`,
+
+`Meri Har Dua Ka Asar Tum Ho
+Meri Khushi Ka Intezaam Tum Ho
+Aur Meri Ho Phir Bhi Har Roj Mangte hain Tumko
+Kyoki Meri Zindagi Me Sabse Kimti Tum Ho..!!`,
+
+`Meri Pehli Or Aakhri Mohabbat Tum Ho
+Meri Har Din Ki Khawaish Tum Ho
+Na Jaane Kitna Kamaya Hain Maine
+Par Sabse Kimti Tum Ho..!!`,
+
+`Yu Mujhe Dekh Kar Nazre Chupaya Na Karo
+Baar Baar Mere Karib Aaya Na karo
+Main Machal Jata Hu Teri Khuboo Se
+Jab Lag Aas Paas Ho Mere Paas Aaya Nakaro..!!`, 
+
+`Ab Tumhara Pura Haq Hai Mujh par
+Tum Gussa Karo Ya Pyar Karo
+Ab Sab Kuch Tumhara Hai Mera
+Tumhe Jo Aacha Lage Wo Mere Sath Karo..!`,
+
+`Mohabbat Ke Ehsaso Ne Dilo Me Dhoom Machai Thi
+Bekarari Hui Thi Kam Jab Karib Tum Aayi Thi..!!`,
+
+`Tumhari Har Yaad Me Rehna Chahta Hu
+Tumhe Har Din Apna Kehna Chahta Hu
+Tum Bus Ek Dafa Ha Keh Do
+Tumhari Kasam Koi Dur Na kar Payega Hume..!!`,
+
+`Tum Milo Kahi Kuch Pal Ke liye
+Mera Ishq Mukalm Ho Jaye
+Bus Kuch Pal De Do Apne Sath Mujhe
+Mera Dard Thoda Kam Ho Jaye..!!`,
+
+`Aapko Kya Pata Aapke Intezaar Me
+Maine Har Lamha Kaise Guzara hain
+5-10 Baar Nahi Din me Hazaro Baar
+Aapki DP ko Nihara hai..!!`,
+
+`Hamare Dil Me Aakar
+Hume Pura Kiya Tumne
+Tham Kar Hath Tumhara
+Apna Sapna Jiya Humne..!!`,
+
+`Dil Me Basaya Hain To Jivan Sathi Jaruar Banayenge
+Ban kar Aapki Zindagi Aapke Sapne Sajayenge
+Or Jab Hum Hain To Darna Kaisa
+Ban Kar Jokar Aapko Har dum Hasayenge..!!`,
+
+`Mat Samajhna Hum Bus Kehne Ko Hain Tumhare
+Aajma Ke Dekh Lo Jan Jaoge Meri Jaan
+Hum To Bus Tumhare Hain..!!
+`,
+`Dafan Kar Apne Sapno Ko
+Maine Tujhko Apni Manjil Banai Hain
+Ab Yu Na Muh Mod Mujhse
+Maine Tere Sang Jeene Ki Kasme Khai hai
+`,
+`Mujhe Apni Jaan Bana Lo
+Mujhe Apni Zindagi Ka Mukam Bana Lo
+Basa Lo Apne Dil Me
+Mujhe Apne Khawab Bana Lo`,
+
+`Zindagi Me Kuch Na Mila
+To Bhi Koi Gum Nahi
+Aap Mile Matlab Sab Kuch Mila
+Aapki Khubsurti Jannat Se Kam Nahi`,
+
+`Jab Kuch Din Ho Jate Hain
+Dekhe Huye Tumhe Lagta Hain
+Jaise Kuch Kho Gya Hain Hamara..!!
+`,
+`Meri Aankhon Ke Khwaab Dil Ke Aramaan Ho Tum
+Tum Se Hi To Mai Hoon Meri Pahachaan Ho Tum
+Main Jameen Hoon Agar To Mere Aasamaan Ho Tum
+Sach Maano Mere Lie To Saara Jahaan Ho Tum..!!
+`,
+`In Aankhon Ko Jab Tera Deedaar Ho Jaata Hai
+Din Koee Bhee Ho Lekin Tyauhaar Ho Jaata Hai..!!`,
+
+`Teree Khairiyat Ka Hee Jikr Rahata Hai Duaon Mein
+Masala Sirph Mohabbat Ka Hee Nahee Phikr Ka Bhee Hai..!!`];
+
+function generate(){
+    
+    let n = Math.floor((Math.random())*50)
+    console.log(n)
+    jokes.forEach((e)=>{
+        
+        document.getElementById("shayri").innerHTML=jokes[n];
+        
+    })
+}
+</script>
+</body>
+</html>
+
